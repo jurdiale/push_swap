@@ -1,0 +1,16 @@
+# Compilados
+*.o
+*.a
+
+# Binario
+push_swap
+checker
+
+# Basura de editores
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Valgrind
+vgcore.*
