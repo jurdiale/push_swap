@@ -29,8 +29,8 @@ void    normalize(t_stack *a)
                 i++;
             temp = temp->next;
         }
-		current->index = i;
-		current = current->next;	
+	current->index = i;
+	current = current->next;	
     }
 }
 

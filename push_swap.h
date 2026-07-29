@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurdiale <jurdiale@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jurdiale <jurdiale@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 11:45:48 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/06/11 15:58:35 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/07/29 12:28:11 by jurdiale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	rrb(t_stack **b, int print, t_count *count);
 void	rrr(t_stack **a, t_stack **b, int print, t_count *count);
 
 long	ft_atol(char *str);
+int		ft_strcmp(char *s1, char *s2);
 
 int		is_valid(char *str);
 int 	there_are_duplicates(t_stack *a);
