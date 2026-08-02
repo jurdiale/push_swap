@@ -60,7 +60,7 @@ long	ft_atol(char *str);
 int		ft_strcmp(char *s1, char *s2);
 
 int		is_valid(char *str);
-int 	there_are_duplicates(t_stack *a);
+int 		there_are_duplicates(t_stack *a);
 void    normalize(t_stack *a);
 float	compute_disorder(t_stack *a)
 
@@ -68,5 +68,10 @@ void    error_exit(t_stack **a, t_stack **b);
 
 void    free_stack(t_stack **a);
 int		push_stack(t_stack **a, int value);
+int		meet_destination(t_stack *a, int index);
+int 		calcule_cost(t_stack *a, t_stack *b, int index_b);
+int		meet_better(t_stack *a, t_stack *b);
+void   	rotate_both(t_stack **a, t_stack **b, int better, t_count *count);
+void    rotate_minimum_b(t_stack **b, t_count *count);
 
 #endif
