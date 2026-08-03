@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurdiale <jurdiale@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 11:45:48 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/07/29 12:28:11 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/03 14:14:25 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,23 @@ long	ft_atol(char *str);
 int		ft_strcmp(char *s1, char *s2);
 
 int		is_valid(char *str);
-int 		there_are_duplicates(t_stack *a);
-void    normalize(t_stack *a);
-float	compute_disorder(t_stack *a)
+int		there_are_duplicates(t_stack *a);
+void	normalize(t_stack *a);
+float	compute_disorder(t_stack *a);
 
-void    error_exit(t_stack **a, t_stack **b);
+void	error_exit(t_stack **a, t_stack **b);
 
-void    free_stack(t_stack **a);
+void	free_stack(t_stack **a);
 int		push_stack(t_stack **a, int value);
 int		meet_destination(t_stack *a, int index);
-int 		calcule_cost(t_stack *a, t_stack *b, int index_b);
+int		calcule_cost(t_stack *a, t_stack *b, int index_b);
 int		meet_better(t_stack *a, t_stack *b);
-void   	rotate_both(t_stack **a, t_stack **b, int better, t_count *count);
-void    rotate_minimum_b(t_stack **b, t_count *count);
+void	rotate_both(t_stack **a, t_stack **b, int better, t_count *count);
+void	rotate_minimum_b(t_stack **b, t_count *count);
+int		stack_size(t_stack *a);
+int		position(t_stack *stack, int index);
+int		encontrar_max(t_stack *a);
+int		encontrar_minimo(t_stack *a);
+int		max(int a, int b);
 
 #endif
