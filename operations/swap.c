@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurdiale <jurdiale@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 11:54:42 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/06/10 13:56:15 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/03 14:05:02 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	sa(t_stack **a, int print, t_count *count)
 	(*a)->value = (*a)->next->value;
 	(*a)->next->value = temp;
 	if (print)
-		write(1, "sa\n", 3);
+		write(1, "sa\n", 4);
 	count->sa++;
 	count->total++;
 }
@@ -42,7 +42,7 @@ void	sb(t_stack **b, int print, t_count *count)
 	(*b)->value = (*b)->next->value;
 	(*b)->next->value = temp;
 	if (print)
-		write(1, "sb\n", 3);
+		write(1, "sb\n", 4);
 	count->sb++;
 	count->total++;
 }
@@ -63,7 +63,7 @@ void	ss(t_stack **a, t_stack **b, int print, t_count *count)
 	(*b)->value = (*b)->next->value;
 	(*b)->next->value = temp_b;
 	if (print)
-		write(1, "ss\n", 3);
+		write(1, "ss\n", 4);
 	count->ss++;
 	count->total++;
 }
