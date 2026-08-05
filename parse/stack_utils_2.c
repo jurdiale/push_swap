@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jurdiale <jurdiale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 13:49:13 by pabfajar          #+#    #+#             */
-/*   Updated: 2026/08/03 14:07:12 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/05 16:33:54 by jurdiale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	encontrar_minimo(t_stack *a)
+int	meet_minimum(t_stack *a)
 {
 	int		minimo;
 	t_stack	*current;

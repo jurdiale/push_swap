@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils_1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jurdiale <jurdiale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 14:53:37 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/03 13:54:26 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/05 16:34:08 by jurdiale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	position(t_stack *stack, int index)
 	return (-1);
 }
 
-int	encontrar_max(t_stack *a)
+int	meet_max(t_stack *a)
 {
 	int		max;
 	t_stack	*current;

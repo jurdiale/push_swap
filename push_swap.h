@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jurdiale <jurdiale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 11:45:48 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/03 14:14:25 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/05 18:20:27 by jurdiale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,10 @@ void	rotate_both(t_stack **a, t_stack **b, int better, t_count *count);
 void	rotate_minimum_b(t_stack **b, t_count *count);
 int		stack_size(t_stack *a);
 int		position(t_stack *stack, int index);
-int		encontrar_max(t_stack *a);
-int		encontrar_minimo(t_stack *a);
+int		meet_max(t_stack *a);
+int		meet_minimum(t_stack *a);
 int		max(int a, int b);
+
+void    complex_algorithm(t_stack **a, t_stack **b, t_count *count);
 
 #endif
