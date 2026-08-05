@@ -6,14 +6,14 @@
 /*   By: jurdiale <jurdiale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 17:29:04 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/05 18:25:53 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/05 18:27:24 by jurdiale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static void	ft_putnbr_fd(int n, int fd)
-{
+{ 
 	char	c;
 
 	if (n < 0)
