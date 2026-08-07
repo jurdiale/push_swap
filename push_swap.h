@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurdiale <jurdiale@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 11:45:48 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/05 18:20:27 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/07 13:13:27 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,15 @@ int		calcule_cost(t_stack *a, t_stack *b, int index_b);
 int		meet_better(t_stack *a, t_stack *b);
 void	rotate_both(t_stack **a, t_stack **b, int better, t_count *count);
 void	rotate_minimum_b(t_stack **b, t_count *count);
+void	rotate_min_a(t_stack **a, t_count *count);
 int		stack_size(t_stack *a);
 int		position(t_stack *stack, int index);
 int		meet_max(t_stack *a);
 int		meet_minimum(t_stack *a);
 int		max(int a, int b);
 
-void    complex_algorithm(t_stack **a, t_stack **b, t_count *count);
+void	complex_algorithm(t_stack **a, t_stack **b, t_count *count);
+void	simple_algorithm(t_stack **a, t_stack **b, t_count *count);
+
 
 #endif
