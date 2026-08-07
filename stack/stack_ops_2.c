@@ -3,34 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   stack_ops_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jose <Jose@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 20:03:45 by Jose              #+#    #+#             */
-/*   Updated: 2026/08/02 20:49:45 by Jose             ###   ########.fr       */
+/*   Updated: 2026/08/07 13:04:05 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-static void rotate_a(t_stack **a, int pos_a, int size_a, t_count *count)
+static void	rotate_a(t_stack **a, int pos_a, int size_a, t_count *count)
 {
-    if (pos_a <= (size_a / 2))
-    {
-        while (pos_a > 0)
-        {
-            ra(a, 1, count);
-            pos_a--;
-        }
-    }
-    else
-    {
-        while (pos_a < (size_a))
-        {
-            rra(a, 1, count);
-            pos_a++;
-        }
-    }
+	if (pos_a <= (size_a / 2))
+	{
+		while (pos_a > 0)
+		{
+			ra(a, 1, count);
+			pos_a--;
+		}
+	}
+	else
+	{
+		while (pos_a < (size_a))
+		{
+			rra(a, 1, count);
+			pos_a++;
+		}
+	}
 }
 
 
@@ -101,4 +101,18 @@ void    rotate_minimum_b(t_stack **b, t_count *count)
         while ((*b)->index != minimum)
             rrb(b, 1, count);
     }
+}
+
+void	rotate_min_a(t_stack **a, t_count *count)
+{
+	long	size_a;
+
+	size_a = stack_size(*a);
+	while ((*a)->index != 0)
+	{
+		if (position(*a, 0) <= size_a / 2)
+			ra(a, 1, count);
+		else
+			rra(a, 1, count);
+	}
 }
