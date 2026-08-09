@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurdiale <jurdiale@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 11:54:42 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/05 16:27:37 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/09 21:06:47 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void	ss(t_stack **a, t_stack **b, int print, t_count *count)
 {
 	int	temp_a;
 	int	temp_b;
-	int temp_a_index;
-	int temp_b_index;
+	int	temp_a_index;
+	int	temp_b_index;
 
 	if (!(*a) || !(*a)->next)
 		return ;

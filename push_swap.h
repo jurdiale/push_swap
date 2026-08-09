@@ -6,7 +6,7 @@
 /*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 11:45:48 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/07 13:13:27 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/09 21:06:12 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,9 @@ int		position(t_stack *stack, int index);
 int		meet_max(t_stack *a);
 int		meet_minimum(t_stack *a);
 int		max(int a, int b);
+void	order_3(t_stack **a, t_count *count);
 
 void	complex_algorithm(t_stack **a, t_stack **b, t_count *count);
 void	simple_algorithm(t_stack **a, t_stack **b, t_count *count);
-
-
+void	medium_algorithm(t_stack **a, t_stack **b, t_count *count);
 #endif
