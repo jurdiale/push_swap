@@ -6,7 +6,7 @@
 /*   By: jurdiale <jurdiale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 14:34:53 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/06/11 14:58:51 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/06 18:44:53 by jurdiale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,14 @@ int	ft_strcmp(char *s1, char *s2)
 		i++;
 	}
 	return (s1[i] - s2[i]);
+}
+
+void    *ft_memset(void *s, int c, size_t n)
+{
+    unsigned char *ptr;
+
+    ptr = (unsigned char *)s;
+    while (n--)
+        *ptr++ = (unsigned char)c;
+    return (s);
 }

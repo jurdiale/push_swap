@@ -6,7 +6,7 @@
 /*   By: jurdiale <jurdiale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 13:49:13 by pabfajar          #+#    #+#             */
-/*   Updated: 2026/08/05 16:33:54 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/09 15:41:07 by jurdiale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 int	meet_minimum(t_stack *a)
 {
-	int		minimo;
+	int		minimum;
 	t_stack	*current;
 
-	minimo = a->index;
+	minimum = a->index;
 	current = a;
 	while (current != NULL)
 	{
-		if (minimo > current->index)
-			minimo = current->index;
+		if (minimum > current->index)
+			minimum = current->index;
 		current = current->next;
 	}
-	return (minimo);
+	return (minimum);
 }
 
 int	max(int a, int b)
 {
-	if (a>b)
+	if (a > b)
 		return (a);
 	return (b);
 }
