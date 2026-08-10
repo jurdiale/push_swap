@@ -6,7 +6,7 @@
 /*   By: jurdiale <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 11:45:48 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/10 18:25:26 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/10 21:28:34 by jurdiale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,12 @@ int		meet_max(t_stack *a);
 int		meet_minimum(t_stack *a);
 int		max(int a, int b);
 void	order_3(t_stack **a, t_count *count);
+int	is_order(t_stack *a);
+void	execute_operation(t_stack **a, t_stack **b,
+	char *line, t_count *count);
+void	build_stack(t_stack **a, t_stack **b, char **numbers);
 
 void	order_2(t_stack **a, t_count *count);
-void	order_3(t_stack **a, t_count *count);
 void	lineal_algorithm(t_stack **a, t_count *count);
 void	complex_algorithm(t_stack **a, t_stack **b, t_count *count);
 void	simple_algorithm(t_stack **a, t_stack **b, t_count *count);
