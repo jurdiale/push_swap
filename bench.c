@@ -6,7 +6,7 @@
 /*   By: jurdiale <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 17:29:04 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/10 18:23:39 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/10 19:40:38 by jurdiale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	w_operations2(t_count *count)
 	ft_putnbr_fd(count->ra, 2);
 	write(2, " rb: ", 5);
 	ft_putnbr_fd(count->rb, 2);
-	write(2, " rr: ", 6);
+	write(2, " rr: ", 5);
 	ft_putnbr_fd(count->rr, 2);
 	write(2, "\n", 1);
 	write(2, "rra: ", 5);
@@ -87,5 +87,5 @@ void	bench(float disorder, t_count *count, int flag)
 	if (flag == ADAPTATIVE)
 		write(2, "Strategy: Adaptive\n", 19);
 	w_operations1(count);
-	w_operatios2(count);
+	w_operations2(count);
 }
