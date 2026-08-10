@@ -100,7 +100,7 @@ pabfajar:
 - Normalización e índice de desorden
 - Utilidades de pila
 - Ordena 3
-- Algoritmo simple y algoritmo medio
+- Algoritmo simple y algoritmo medio (Turco)
 - Header (con jurdiale)
 - Main
 - Makefile
