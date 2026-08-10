@@ -6,7 +6,7 @@
 /*   By: jurdiale <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 17:33:21 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/10 21:38:21 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/10 21:46:32 by jurdiale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,14 @@ static int	is_order(t_stack *a)
 
 static void	read_and_execute(t_stack **a, t_stack **b, t_count *count)
 {
-	char	*linea;
+	char	*line;
 
-	linea = get_next_line(0);
-	while (linea != NULL)
+	line = get_next_line(0);
+	while (line != NULL)
 	{
-		execute_operation(linea, a, b, count);
-		free(linea);
-		linea = get_next_line(0);
+		execute_operation(a, b, line, count);
+		free(line);
+		line = get_next_line(0);
 	}
 }
 
