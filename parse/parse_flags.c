@@ -6,7 +6,7 @@
 /*   By: jurdiale <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 12:08:48 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/10 19:27:21 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/10 19:29:56 by jurdiale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ int     parsear_flags(char **argv, int *flag_strategy, int *flag_bench)
         else
             i = -1;
         i++;
-        return (i);
     }
+    return (i); 
 }
