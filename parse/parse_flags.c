@@ -6,7 +6,7 @@
 /*   By: jurdiale <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 12:08:48 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/10 19:29:56 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/10 19:31:00 by jurdiale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int     parsear_flags(char **argv, int *flag_strategy, int *flag_bench)
             *flag_strategy = SIMPLE;
         else if (ft_strcmp(argv[i], "--medium") == 0)
             *flag_strategy = MEDIUM;
-        else if (ft_strcmp(argv[i], '--complex') == 0)
+        else if (ft_strcmp(argv[i], "--complex") == 0)
             *flag_strategy = COMPLEX;
-        else if (ft_strcmp(argv[i], '--adaptive') == 0)
+        else if (ft_strcmp(argv[i], "--adaptive") == 0)
             *flag_strategy = ADAPTATIVE;
-        else if (ft_strcmp(argv[i], '--bench') == 0)
+        else if (ft_strcmp(argv[i], "--bench") == 0)
             *flag_bench = 1;
         else
             i = -1;
