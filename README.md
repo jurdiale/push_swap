@@ -84,7 +84,7 @@ Si tras ejecutar todas las operaciones la pila a está ordenada y b está vacía
 
 jurdiale:
 - Checker (bonus)
-- Ordena 2 y ordena 3
+- Ordena 2
 - Algoritmo complejo (radix sort)
 - Algoritmo lineal
 - Algoritmo adaptativo
@@ -99,6 +99,7 @@ pabfajar:
 - Parseo y validación de entrada
 - Normalización e índice de desorden
 - Utilidades de pila
+- Ordena 3
 - Algoritmo simple y algoritmo medio
 - Header (con jurdiale)
 - Main
