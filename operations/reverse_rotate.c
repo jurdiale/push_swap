@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurdiale <jurdiale@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jurdiale <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:30:45 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/06/10 14:25:31 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/10 18:47:18 by jurdiale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
