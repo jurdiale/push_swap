@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jurdiale <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 11:45:48 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/11 03:50:10 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/11 13:00:01 by jurdiale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ typedef struct s_stack
 	int				index;
 	struct s_stack	*next;
 }	t_stack;
+
+typedef struct	s_flags
+{
+	int strategy;
+	int bench;
+}	t_flags;
 
 typedef struct s_count /* estructura para contar operaciones --bench*/
 {

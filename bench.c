@@ -6,7 +6,7 @@
 /*   By: jurdiale <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 17:29:04 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/10 19:40:38 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/11 13:00:01 by jurdiale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	w_operations2(t_count *count)
 	write(2, "\n", 1);
 }
 
-void	bench(float disorder, t_count *count, int flag)
+void	bench(float disorder, t_count *count, t_flags flag)
 {
 	int	integer;
 	int	decimal;
@@ -78,13 +78,13 @@ void	bench(float disorder, t_count *count, int flag)
 		write(2, "0", 1);
 	ft_putnbr_fd(decimal, 2);
 	write(2, "%\n", 2);
-	if (flag == SIMPLE)
+	if (flag.strategy == SIMPLE)
 		write(2, "Strategy: Simple O(n^2)\n", 24);
-	if (flag == MEDIUM)
+	if (flag.strategy == MEDIUM)
 		write(2, "Strategy: Medium O(n*sqrt(n))\n", 30);
-	if (flag == COMPLEX)
+	if (flag.strategy == COMPLEX)
 		write(2, "Strategy: Complex O(n*log(n))\n", 30);
-	if (flag == ADAPTATIVE)
+	if (flag.strategy == ADAPTATIVE)
 		write(2, "Strategy: Adaptive\n", 19);
 	w_operations1(count);
 	w_operations2(count);

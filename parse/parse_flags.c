@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parse_flags.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jurdiale <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 12:08:48 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/11 03:56:15 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/11 13:12:47 by jurdiale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	parse_flags(char **argv, int *flag_strategy, int *flag_bench)
+int	parse_flags(char **argv, t_flags *flag)
 {
 	int	i;
 
@@ -20,17 +20,17 @@ int	parse_flags(char **argv, int *flag_strategy, int *flag_bench)
 	while (argv[i][0] == '-' && argv[i][1] == '-')
 	{
 		if (ft_strcmp(argv[i], "--simple") == 0)
-			*flag_strategy = SIMPLE;
+			flag->strategy = SIMPLE;
 		else if (ft_strcmp(argv[i], "--medium") == 0)
-			*flag_strategy = MEDIUM;
+			flag->strategy = MEDIUM;
 		else if (ft_strcmp(argv[i], "--complex") == 0)
-			*flag_strategy = COMPLEX;
+			flag->strategy = COMPLEX;
 		else if (ft_strcmp(argv[i], "--adaptive") == 0)
-			*flag_strategy = ADAPTATIVE;
+			flag->strategy = ADAPTATIVE;
 		else if (ft_strcmp(argv[i], "--bench") == 0)
-			*flag_bench = 1;
+			flag->bench = 1;
 		else
-			i = -1;
+			return (-1);
 		i++;
 	}
 	return (i);
