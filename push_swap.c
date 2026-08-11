@@ -6,7 +6,7 @@
 /*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 22:35:45 by pabfajar          #+#    #+#             */
-/*   Updated: 2026/08/11 16:44:47 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/11 16:46:39 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	execute_algorithms(t_stack **a, t_stack **b, t_count *count,
 			adaptative(a, b, disorder, count);
 	}
 	if (flags.bench)
-		bench(compute_disorder(*a), count, flags);
+		bench(disorder, count, flags);
 }
 
 int	main(int argc, char **argv)
