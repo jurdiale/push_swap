@@ -6,7 +6,7 @@
 /*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 22:35:45 by pabfajar          #+#    #+#             */
-/*   Updated: 2026/08/11 17:09:43 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/11 17:27:28 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	validate_numbers(int argc, char **argv, int i, t_stack **a)
 	j = 0;
 	while (numbers[j])
 		j++;
+	j--;
 	while (j >= 0)
 	{
 		if (!is_valid(numbers[j]) || !push_stack(a, (int)ft_atol(numbers[j])))
