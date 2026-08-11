@@ -6,7 +6,7 @@
 /*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 22:35:45 by pabfajar          #+#    #+#             */
-/*   Updated: 2026/08/11 16:46:39 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/11 16:59:14 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,15 @@ int	validate_numbers(int argc, char **argv, int i, t_stack **a)
 	else
 		numbers = argv + i;
 	j = 0;
-	while (numbers[j])
+	while (!numbers[j])
+		j++;
+	while (j - 1 >= 0)
 	{
 		if (!is_valid(numbers[j]) || !push_stack(a, (int)ft_atol(numbers[j])))
+		{
 			return (0);
-		j++;
+			j--;
+		}
 	}
 	if (there_are_duplicates(*a))
 		return (0);
