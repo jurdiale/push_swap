@@ -25,7 +25,7 @@ int	parse_flags(char **argv, t_flags *flag)
 			flag->strategy = MEDIUM;
 		else if (ft_strcmp(argv[i], "--complex") == 0)
 			flag->strategy = COMPLEX;
-		else if (ft_strcmp(argv[i], "--adaptive") == 0)
+		else if (ft_strcmp(argv[i], "--adaptative") == 0)
 			flag->strategy = ADAPTATIVE;
 		else if (ft_strcmp(argv[i], "--bench") == 0)
 			flag->bench = 1;
