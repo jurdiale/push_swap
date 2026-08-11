@@ -6,7 +6,7 @@
 /*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 22:35:45 by pabfajar          #+#    #+#             */
-/*   Updated: 2026/08/11 13:48:13 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/11 16:44:47 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	validate_numbers(int argc, char **argv, int i, t_stack **a)
 }
 
 void	execute_algorithms(t_stack **a, t_stack **b, t_count *count,
-	int flag_strategy)
+	t_flags flags)
 {
 	int		size;
 	float	disorder;
@@ -55,15 +55,17 @@ void	execute_algorithms(t_stack **a, t_stack **b, t_count *count,
 		order_3(a, count);
 	else if (size > 3)
 	{
-		if (flag_strategy == SIMPLE)
+		if (flags.strategy == SIMPLE)
 			simple_algorithm(a, b, count);
-		else if (flag_strategy == MEDIUM)
+		else if (flags.strategy == MEDIUM)
 			medium_algorithm(a, b, count);
-		else if (flag_strategy == COMPLEX)
+		else if (flags.strategy == COMPLEX)
 			complex_algorithm(a, b, count);
 		else
 			adaptative(a, b, disorder, count);
 	}
+	if (flags.bench)
+		bench(compute_disorder(*a), count, flags);
 }
 
 int	main(int argc, char **argv)
@@ -84,9 +86,7 @@ int	main(int argc, char **argv)
 		return (0);
 	if (!validate_numbers(argc, argv, i, &a))
 		error_exit(&a, &b);
-	execute_algorithms(&a, &b, &count, flags.strategy);
-	if (flags.bench)
-		bench(compute_disorder(a), &count, flags);
+	execute_algorithms(&a, &b, &count, flags);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);

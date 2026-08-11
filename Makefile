@@ -6,14 +6,14 @@
 #    By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/10 22:12:22 by pabfajar          #+#    #+#              #
-#    Updated: 2026/08/11 13:49:34 by pabfajar         ###   ########.fr        #
+#    Updated: 2026/08/11 16:42:19 by pabfajar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME1 = push_swap
 NAME2 = checker
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I . -I bonus/
 
 SRCS_SHARED = operations/swap.c operations/push.c\
  operations/rotate.c operations/reverse_rotate.c\
