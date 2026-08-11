@@ -6,12 +6,12 @@
 #    By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/10 22:12:22 by pabfajar          #+#    #+#              #
-#    Updated: 2026/08/11 04:12:47 by pabfajar         ###   ########.fr        #
+#    Updated: 2026/08/11 13:49:34 by pabfajar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME1 = push_swap.a
-NAME2 = checker.a
+NAME1 = push_swap
+NAME2 = checker
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 

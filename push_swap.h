@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurdiale <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 11:45:48 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/11 13:00:01 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/11 13:41:40 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-typedef struct	s_flags
+typedef struct s_flags
 {
-	int strategy;
-	int bench;
+	int	strategy;
+	int	bench;
 }	t_flags;
 
 typedef struct s_count /* estructura para contar operaciones --bench*/
@@ -93,7 +93,7 @@ void	order_3(t_stack **a, t_count *count);
 void	free_numbers(char **numbers);
 void	free_all(t_stack **a, t_stack **b);
 void	build_stack(t_stack **a, t_stack **b, char **numbers);
-int		parse_flags(char **argv, int *flag_strategy, int *flag_bench);
+int		parse_flags(char **argv, t_flags *flag);
 
 void	order_2(t_stack **a, t_count *count);
 void	lineal_algorithm(t_stack **a, t_count *count);
@@ -101,7 +101,7 @@ void	complex_algorithm(t_stack **a, t_stack **b, t_count *count);
 void	simple_algorithm(t_stack **a, t_stack **b, t_count *count);
 void	medium_algorithm(t_stack **a, t_stack **b, t_count *count);
 void	adaptative(t_stack **a, t_stack **b, float disorder, t_count *count);
-void	bench(float disorder, t_count *count, int flag);
+void	bench(float disorder, t_count *count, t_flags flag);
 void	phase_2(t_stack **a, t_stack **b, t_count *count);
 void	phase_3(t_stack **a, t_count *count);
 

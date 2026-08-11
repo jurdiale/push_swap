@@ -6,7 +6,7 @@
 /*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 22:35:45 by pabfajar          #+#    #+#             */
-/*   Updated: 2026/08/11 04:14:07 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/11 13:48:13 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ int	validate_numbers(int argc, char **argv, int i, t_stack **a)
 	j = 0;
 	while (numbers[j])
 	{
-		if (!is_valid(numbers[j]) || !push_stack(a, ft_atol(numbers[j])))
-			return (-1);
+		if (!is_valid(numbers[j]) || !push_stack(a, (int)ft_atol(numbers[j])))
+			return (0);
 		j++;
 	}
 	if (there_are_duplicates(*a))
-		return (-1);
+		return (0);
 	normalize(*a);
 	return (1);
 }
@@ -71,23 +71,22 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 	t_count	count;
-	int		flag_bench;
-	int		flag_strategy;
+	t_flags	flags;
+	int		i;
 
-	flag_strategy = ADAPTATIVE;
-	flag_bench = 0;
+	flags.strategy = ADAPTATIVE;
+	flags.bench = 0;
 	if (argc == 1)
 		return (0);
 	init_all(&a, &b, &count);
-	if (parse_flags(argv, &flag_strategy, &flag_bench) == -1)
+	i = parse_flags(argv, &flags);
+	if (i == -1)
 		return (0);
-	flag_strategy = ADAPTATIVE;
-	if (!validate_numbers(argc, argv,
-			parse_flags(argv, &flag_strategy, &flag_bench), &a))
+	if (!validate_numbers(argc, argv, i, &a))
 		error_exit(&a, &b);
-	execute_algorithms(&a, &b, &count, flag_strategy);
-	if (flag_bench)
-		bench(compute_disorder(a), &count, flag_bench);
+	execute_algorithms(&a, &b, &count, flags.strategy);
+	if (flags.bench)
+		bench(compute_disorder(a), &count, flags);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);
