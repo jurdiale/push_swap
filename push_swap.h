@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurdiale <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 11:45:48 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/10 21:38:24 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/11 03:50:10 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stddef.h>
 # include <limits.h>
-# include "get_next_line.h"
+# include "bonus/get_next_line.h"
 
 typedef struct s_stack
 {
@@ -60,6 +60,8 @@ void	rrr(t_stack **a, t_stack **b, int print, t_count *count);
 long	ft_atol(char *str);
 int		ft_strcmp(char *s1, char *s2);
 void	*ft_memset(void *s, int c, size_t n);
+char	**ft_split(char const *s, char c);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
 
 int		is_valid(char *str);
 int		there_are_duplicates(t_stack *a);
@@ -85,12 +87,16 @@ void	order_3(t_stack **a, t_count *count);
 void	free_numbers(char **numbers);
 void	free_all(t_stack **a, t_stack **b);
 void	build_stack(t_stack **a, t_stack **b, char **numbers);
+int		parse_flags(char **argv, int *flag_strategy, int *flag_bench);
 
 void	order_2(t_stack **a, t_count *count);
 void	lineal_algorithm(t_stack **a, t_count *count);
 void	complex_algorithm(t_stack **a, t_stack **b, t_count *count);
 void	simple_algorithm(t_stack **a, t_stack **b, t_count *count);
 void	medium_algorithm(t_stack **a, t_stack **b, t_count *count);
+void	adaptative(t_stack **a, t_stack **b, float disorder, t_count *count);
 void	bench(float disorder, t_count *count, int flag);
+void	phase_2(t_stack **a, t_stack **b, t_count *count);
+void	phase_3(t_stack **a, t_count *count);
 
 #endif

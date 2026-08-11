@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurdiale <jurdiale@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 13:49:13 by pabfajar          #+#    #+#             */
-/*   Updated: 2026/08/09 15:41:07 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/10 23:03:23 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	meet_minimum(t_stack *a)
 {

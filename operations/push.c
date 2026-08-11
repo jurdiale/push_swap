@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurdiale <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 12:31:09 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/10 18:47:18 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/10 23:03:23 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 	reciben t_count *count para contar en modo --bench y un parametro int print 
 	para saber si deben imprimir su nombre o no (checker) print = 0 */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	pb(t_stack **a, t_stack **b, int print, t_count *count)
 {

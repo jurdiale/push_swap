@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   lineal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurdiale <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 17:57:50 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/10 18:13:57 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/11 03:50:36 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	lineal_algorithm(t_stack **a, t_count *count)
 {
@@ -33,5 +33,5 @@ void	lineal_algorithm(t_stack **a, t_count *count)
 			i++;
 		}
 	}
-	fase_3(a, count);
+	phase_3(a, count);
 }

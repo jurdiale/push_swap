@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   checker_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurdiale <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 20:37:39 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/10 21:38:24 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/10 23:01:44 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	free_numbers(char **numbers)
 {

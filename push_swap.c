@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 22:35:45 by pabfajar          #+#    #+#             */
-/*   Updated: 2026/08/10 22:41:50 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/11 04:14:07 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,14 @@ void	init_all(t_stack **a, t_stack **b, t_count *count)
 {
 	*a = NULL;
 	*b = NULL;
-
 	ft_memset(count, 0, sizeof(t_count));
 }
 
-int	parse_and_validate(int argc, char **argv, t_stack **a, t_stack **b)
+int	validate_numbers(int argc, char **argv, int i, t_stack **a)
 {
-	int		i;
-	int		j;
 	char	**numbers;
+	int		j;
 
-	i = parse_flags(argv);
 	if (argc == i + 1)
 		numbers = ft_split(argv[i], ' ');
 	else
@@ -34,25 +31,24 @@ int	parse_and_validate(int argc, char **argv, t_stack **a, t_stack **b)
 	j = 0;
 	while (numbers[j])
 	{
-		if (!is_valid(numbers[j]) || !push_stack(a, ft_atoi(numbers[j])))
-			error_exit(&a, &b);
+		if (!is_valid(numbers[j]) || !push_stack(a, ft_atol(numbers[j])))
+			return (-1);
 		j++;
 	}
 	if (there_are_duplicates(*a))
-		error_exit(&a, &b);
+		return (-1);
 	normalize(*a);
 	return (1);
 }
 
-void	execute_algorithms(t_stack **a, t_stack **b, t_count *count)
+void	execute_algorithms(t_stack **a, t_stack **b, t_count *count,
+	int flag_strategy)
 {
 	int		size;
 	float	disorder;
-	int		flag_strategy;
 
 	disorder = compute_disorder(*a);
 	size = stack_size(*a);
-	flag_strategy = ADAPTATIVE;
 	if (size == 2)
 		order_2(a, count);
 	else if (size == 3)
@@ -74,21 +70,24 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_count	*count;
+	t_count	count;
 	int		flag_bench;
-	float	disorder;
+	int		flag_strategy;
 
+	flag_strategy = ADAPTATIVE;
 	flag_bench = 0;
-	disorder = compute_disorder(a);
-
 	if (argc == 1)
 		return (0);
 	init_all(&a, &b, &count);
-	if (!parse_and_validate(argc, argv, &a, &b))
+	if (parse_flags(argv, &flag_strategy, &flag_bench) == -1)
+		return (0);
+	flag_strategy = ADAPTATIVE;
+	if (!validate_numbers(argc, argv,
+			parse_flags(argv, &flag_strategy, &flag_bench), &a))
 		error_exit(&a, &b);
-	execute_algorithms(&a, &b, &count);
+	execute_algorithms(&a, &b, &count, flag_strategy);
 	if (flag_bench)
-		bench(disorder, &count, flag_bench);
+		bench(compute_disorder(a), &count, flag_bench);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);

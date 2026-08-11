@@ -6,11 +6,11 @@
 /*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 20:23:52 by pabfajar          #+#    #+#             */
-/*   Updated: 2026/08/09 20:53:04 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/11 03:50:27 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	simple_algorithm(t_stack **a, t_stack **b, t_count *count)
 {
@@ -20,7 +20,7 @@ void	simple_algorithm(t_stack **a, t_stack **b, t_count *count)
 	while (*b != NULL)
 	{
 		rotate_minimum_b(b, count);
-		pa(a, b, 1, count);
+		phase_2(a, b, count);
 	}
-	rotate_min(a, count);
+	phase_3(a, count);
 }

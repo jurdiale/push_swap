@@ -6,7 +6,7 @@
 #    By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/10 22:12:22 by pabfajar          #+#    #+#              #
-#    Updated: 2026/08/10 22:48:01 by pabfajar         ###   ########.fr        #
+#    Updated: 2026/08/11 04:12:47 by pabfajar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,12 +21,13 @@ SRCS_SHARED = operations/swap.c operations/push.c\
  stack/stack_ops_2.c parse/validate.c parse/normalize.c\
  parse/error.c
 
-SRCS_PS = main.c parse/parse_flags.c bench.c\
+SRCS_PS = push_swap.c parse/parse_flags.c bench.c\
 algorithms/simple.c algorithms/medium.c algorithms/complex.c\
 algorithms/lineal.c algorithms/adaptative.c push_swap_utils.c\
 push_swap_utils_2.c
 
-SRCS_CH = bonus/checker
+SRCS_CH = bonus/checker.c bonus/checker_utils.c push_swap_utils.c\
+bonus/get_next_line.c bonus/get_next_line_utils.c push_swap_utils_2.c
 
 OBJS_SHARED = $(SRCS_SHARED:.c=.o)
 OBJS_PS = $(SRCS_PS:.c=.o)

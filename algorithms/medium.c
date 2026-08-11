@@ -6,11 +6,11 @@
 /*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/07 10:31:39 by pabfajar          #+#    #+#             */
-/*   Updated: 2026/08/09 20:58:33 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/11 03:45:58 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	exists_in_chunk(t_stack *a, int chunk, int chunk_size)
 {
@@ -24,7 +24,7 @@ int	exists_in_chunk(t_stack *a, int chunk, int chunk_size)
 	return (0);
 }
 
-void	push_to_b(t_stack **a, t_stack **b, int size, t_count *count)
+void	phase_1(t_stack **a, t_stack **b, int size, t_count *count)
 {
 	int	chunk;
 	int	chunk_size;
@@ -50,28 +50,41 @@ void	push_to_b(t_stack **a, t_stack **b, int size, t_count *count)
 	}
 }
 
-void	insert_to_a(t_stack **a, t_stack **b, t_count *count)
+void	phase_2(t_stack **a, t_stack **b, t_count *count)
 {
 	int	better_index;
 
 	better_index = 0;
 	while (*b != NULL)
 	{
-		better_index = meet_better(a, b);
+		better_index = meet_better(*a, *b);
 		rotate_both(a, b, better_index, count);
 		pa (a, b, 1, count);
 	}
 }
 
+void	phase_3(t_stack **a, t_count *count)
+{
+	long	size_a;
+
+	size_a = stack_size(*a);
+	while ((*a)->index != 0)
+	{
+		if (position(*a, 0) <= size_a / 2)
+			ra(a, 1, count);
+		else
+			rra(a, 1, count);
+	}
+}
+
 void	medium_algorithm(t_stack **a, t_stack **b, t_count *count)
 {
-	while (stack_size(*a) > 3)
-		push_to_b(a, b, stack_size(*a), count);
+	phase_1(a, b, stack_size(*a), count);
 	order_3(a, count);
 	while (*b != NULL)
 	{
 		rotate_minimum_b(b, count);
-		insert_to_a(a, b, count);
+		phase_2(a, b, count);
 	}
-	rotate_min(a, count);
+	phase_3(a, count);
 }

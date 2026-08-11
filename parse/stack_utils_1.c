@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils_1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurdiale <jurdiale@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 14:53:37 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/05 16:34:08 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/11 03:16:15 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	free_stack(t_stack **a)
 {
@@ -60,7 +60,7 @@ int	position(t_stack *stack, int index)
 	while (stack != NULL)
 	{
 		if (stack->index == index)
-			return (1);
+			return (i);
 		stack = stack->next;
 		i++;
 	}

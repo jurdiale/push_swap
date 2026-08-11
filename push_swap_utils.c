@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurdiale <jurdiale@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 14:34:53 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/06 18:44:53 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/11 03:43:18 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,31 @@ int	ft_strcmp(char *s1, char *s2)
 	return (s1[i] - s2[i]);
 }
 
-void    *ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
-    unsigned char *ptr;
+	unsigned char	*ptr;
 
-    ptr = (unsigned char *)s;
-    while (n--)
-        *ptr++ = (unsigned char)c;
-    return (s);
+	ptr = (unsigned char *)s;
+	while (n--)
+		*ptr++ = (unsigned char)c;
+	return (s);
+}
+
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	size_t				count;
+	unsigned char		*d;
+	const unsigned char	*s;
+
+	d = (unsigned char *)dst;
+	s = (const unsigned char *)src;
+	count = 0;
+	if (dst == (void *)0 && src == (void *)0)
+		return (dst);
+	while (count < n)
+	{
+		d[count] = s[count];
+		count++;
+	}
+	return (dst);
 }

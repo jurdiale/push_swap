@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   adaptative.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurdiale <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 18:33:16 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/10 18:45:55 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/10 22:56:43 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	adaptative(t_stack **a, t_stack **b,
 	float disorder, t_count *count)

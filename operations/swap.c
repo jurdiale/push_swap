@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurdiale <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 11:54:42 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/10 19:33:22 by jurdiale         ###   ########.fr       */
+/*   Updated: 2026/08/10 22:57:20 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
     y un parametro int print para saber si deben imprimir su nombre o no 
     (checker) print = 0 */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	sa(t_stack **a, int print, t_count *count)
 {
