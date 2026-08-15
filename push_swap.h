@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pabfajar <pabfajar@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 11:45:48 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/11 13:41:40 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/13 12:05:49 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,15 @@ typedef struct s_flags
 	int	bench;
 }	t_flags;
 
-typedef struct s_count /* estructura para contar operaciones --bench*/
+typedef struct s_rots
+{
+	int	pa;
+	int	pb;
+	int	size_a;
+	int	size_b;
+}	t_rots;
+
+typedef struct s_count /* Structure for counting operations in --bench mode */
 {
 	int	sa;
 	int	sb;
@@ -49,7 +57,7 @@ typedef struct s_count /* estructura para contar operaciones --bench*/
 # define SIMPLE		0
 # define MEDIUM		1
 # define COMPLEX	2
-# define ADAPTATIVE	3
+# define ADAPTIVE	3
 
 void	sa(t_stack **a, int print, t_count *count);
 void	sb(t_stack **b, int print, t_count *count);
@@ -68,6 +76,7 @@ int		ft_strcmp(char *s1, char *s2);
 void	*ft_memset(void *s, int c, size_t n);
 char	**ft_split(char const *s, char c);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
+int		ft_sqrt(int n);
 
 int		is_valid(char *str);
 int		there_are_duplicates(t_stack *a);
@@ -94,13 +103,19 @@ void	free_numbers(char **numbers);
 void	free_all(t_stack **a, t_stack **b);
 void	build_stack(t_stack **a, t_stack **b, char **numbers);
 int		parse_flags(char **argv, t_flags *flag);
+int		validate_numbers(int argc, char **argv, int i, t_stack **a);
+void	rotate_b(t_stack **b, int pos_b, int size_b, t_count *count);
+void	rotate_a(t_stack **a, int pos_a, int size_a, t_count *count);
+void	rotate_a_down(t_stack **a, t_rots rots, t_count *count);
+void	rotate_b_down(t_stack **b, t_rots rots, t_count *count);
+int		find_next(t_stack *a, int chunk, int chunk_size);
 
 void	order_2(t_stack **a, t_count *count);
-void	lineal_algorithm(t_stack **a, t_count *count);
+int		lineal_algorithm(t_stack **a, t_count *count);
 void	complex_algorithm(t_stack **a, t_stack **b, t_count *count);
 void	simple_algorithm(t_stack **a, t_stack **b, t_count *count);
 void	medium_algorithm(t_stack **a, t_stack **b, t_count *count);
-void	adaptative(t_stack **a, t_stack **b, float disorder, t_count *count);
+void	adaptive(t_stack **a, t_stack **b, float disorder, t_count *count);
 void	bench(float disorder, t_count *count, t_flags flag);
 void	phase_2(t_stack **a, t_stack **b, t_count *count);
 void	phase_3(t_stack **a, t_count *count);

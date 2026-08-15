@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pabfajar <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 17:33:21 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/10 23:01:53 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/12 16:44:23 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+/* Executes the operation specified by line on stacks a and b.
+** Compares line (which includes the final newline) with each valid operation.
+** If the operation is not recognized, calls error_exit.
+*/
 
 static void	execute_operation(t_stack **a, t_stack **b,
 	char *line, t_count *count)
@@ -41,8 +46,15 @@ static void	execute_operation(t_stack **a, t_stack **b,
 		error_exit(a, b);
 }
 
+/* Checks whether stack a is sorted in ascending order by index.
+** Iterates through the stack comparing each node with the next one.
+** Returns 1 if it is sorted, 0 if any inversion is found.
+*/
+
 static int	is_order(t_stack *a)
 {
+	if (!a)
+		return (1);
 	while (a->next != NULL)
 	{
 		if (a->index > a->next->index)
@@ -51,6 +63,12 @@ static int	is_order(t_stack *a)
 	}
 	return (1);
 }
+
+/* Reads operations from stdin line by line using get_next_line and executes 
+them.
+** Each line includes the newline — execute_operation uses it for comparison.
+** Frees each line after executing it.
+*/
 
 static void	read_and_execute(t_stack **a, t_stack **b, t_count *count)
 {
@@ -64,6 +82,12 @@ static void	read_and_execute(t_stack **a, t_stack **b, t_count *count)
 		line = get_next_line(0);
 	}
 }
+
+/* Entry point of the checker. Builds the stack from the arguments,
+** reads and executes operations from stdin with read_and_execute,
+** and checks whether a ends up sorted and b empty. Prints "OK" or "KO" to 
+stdout.
+*/
 
 int	main(int argc, char **argv)
 {

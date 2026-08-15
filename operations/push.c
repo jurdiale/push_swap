@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pabfajar <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 12:31:09 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/10 23:03:23 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/12 16:45:10 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*  Mueve el tope de una pila a otra. Todas las operaciones 
-	reciben t_count *count para contar en modo --bench y un parametro int print 
-	para saber si deben imprimir su nombre o no (checker) print = 0 */
-
 #include "../push_swap.h"
+
+/* Moves the top node of a to the top of b.
+** Moves the entire node (does not copy the value), redirecting pointers.
+** Does nothing if a is empty.
+*/
 
 void	pb(t_stack **a, t_stack **b, int print, t_count *count)
 {
@@ -31,6 +32,11 @@ void	pb(t_stack **a, t_stack **b, int print, t_count *count)
 	count->pb++;
 	count->total++;
 }
+
+/* Moves the top node of b to the top of a.
+** Identical to pb but in the opposite direction.
+** Does nothing if b is empty.
+*/
 
 void	pa(t_stack **a, t_stack **b, int print, t_count *count)
 {

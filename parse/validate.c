@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pabfajar <pabfajar@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 14:22:19 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/11 03:56:52 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/12 16:55:13 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+/* Checks that str represents a valid integer within the INT_MIN..INT_MAX range.
+** Accepts an optional + or - sign at the beginning. Rejects empty strings,
+** non‑numeric input, and overflow. Returns 1 if valid, 0 otherwise.
+*/
 
 int	is_valid(char *str)
 {
@@ -37,6 +42,10 @@ int	is_valid(char *str)
 		return (0);
 	return (1);
 }
+
+/* Compares all pairs of nodes looking for repeated values.
+** Returns 1 if duplicates are found, 0 if all values are distinct.
+*/
 
 int	there_are_duplicates(t_stack *a)
 {

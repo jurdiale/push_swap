@@ -3,16 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   stack_ops_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pabfajar <pabfajar@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 20:03:45 by Jose              #+#    #+#             */
-/*   Updated: 2026/08/11 04:14:48 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/12 16:58:33 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	rotate_a(t_stack **a, int pos_a, int size_a, t_count *count)
+/* Rotates a to bring the node at position pos_a to the top.
+** If pos_a <= size_a/2 it uses ra (faster from the top).
+** If pos_a > size_a/2 it uses rra (faster from the bottom).
+*/
+
+void	rotate_a(t_stack **a, int pos_a, int size_a, t_count *count)
 {
 	if (pos_a <= (size_a / 2))
 	{
@@ -32,7 +37,11 @@ static void	rotate_a(t_stack **a, int pos_a, int size_a, t_count *count)
 	}
 }
 
-static void	rotate_b(t_stack **b, int pos_b, int size_b, t_count *count)
+/* Rotates b to bring the node at position pos_b to the top.
+** Identical to rotate_a but operates on b.
+*/
+
+void	rotate_b(t_stack **b, int pos_b, int size_b, t_count *count)
 {
 	if (pos_b <= (size_b / 2))
 	{
@@ -52,32 +61,11 @@ static void	rotate_b(t_stack **b, int pos_b, int size_b, t_count *count)
 	}
 }
 
-void	rotate_both(t_stack **a, t_stack **b, int better, t_count *count)
-{
-	int	pos_b;
-	int	destination;
-	int	pos_a;
-	int	size_a;
-	int	size_b;
-
-	pos_b = position(*b, better);
-	destination = meet_destination(*a, better);
-	pos_a = position(*a, destination);
-	size_a = stack_size(*a);
-	size_b = stack_size(*b);
-	if ((pos_b <= (size_b / 2)) && (pos_a <= (size_a / 2)))
-	{
-		while ((pos_b-- > 0) && (pos_a-- > 0))
-			rr(a, b, 1, count);
-	}
-	if ((pos_b > (size_b / 2)) && (pos_a > (size_a / 2)))
-	{
-		while ((pos_b++ < size_b) && (pos_a++ < size_a))
-			rrr(a, b, 1, count);
-	}
-	rotate_b(b, pos_b, size_b, count);
-	rotate_a(a, pos_a, size_a, count);
-}
+/* Brings the element with the smallest index in b to the top.
+** Chooses rb or rrb depending on whether the minimum is in the first or 
+second half.
+** Used by simple_algorithm to always insert the smallest element first.
+*/
 
 void	rotate_minimum_b(t_stack **b, t_count *count)
 {
@@ -98,4 +86,32 @@ void	rotate_minimum_b(t_stack **b, t_count *count)
 		while ((*b)->index != minimum)
 			rrb(b, 1, count);
 	}
+}
+
+/* Moves the element of a down to its position using rra.
+** Computes how many rra are needed: size_a - pos_a.
+** Helper for rotate_mixed when a is in the second half.
+*/
+
+void	rotate_a_down(t_stack **a, t_rots rots, t_count *count)
+{
+	int	n;
+
+	n = rots.size_a - rots.pa;
+	while (n-- > 0)
+		rra(a, 1, count);
+}
+
+/* Moves the element of b down to its position using rrb.
+** Computes how many rrb are needed: size_b - pos_b.
+** Helper for rotate_mixed when b is in the second half.
+*/
+
+void	rotate_b_down(t_stack **b, t_rots rots, t_count *count)
+{
+	int	n;
+
+	n = rots.size_b - rots.pb;
+	while (n-- > 0)
+		rrb(b, 1, count);
 }

@@ -3,14 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pabfajar <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 20:26:56 by pabfajar          #+#    #+#             */
-/*   Updated: 2026/08/10 20:28:09 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/12 17:04:25 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/* Counts the number of words in s separated by the delimiter c.
+** Skips consecutive delimiters. Used by ft_split to know how much to malloc.
+*/
 
 static size_t	count_words(char const *s, char c)
 {
@@ -31,6 +35,10 @@ static size_t	count_words(char const *s, char c)
 	return (num_words);
 }
 
+/* Counts the characters of the current word until delimiter c or end of string.
+** Used by get_word to know how much to malloc for each word.
+*/
+
 static size_t	len_word(char const *s, char c)
 {
 	size_t	counter;
@@ -42,6 +50,11 @@ static size_t	len_word(char const *s, char c)
 	}
 	return (counter);
 }
+
+/* Extracts the next word from s starting at index *ind.
+** Advances *ind skipping delimiters, copies the word with ft_memcpy.
+** Updates *ind to the end of the word. Returns NULL if malloc fails.
+*/
 
 static char	*get_word(char const *s, char c, size_t	*ind)
 {
@@ -60,6 +73,10 @@ static char	*get_word(char const *s, char c, size_t	*ind)
 	return (act_word);
 }
 
+/* Partially frees a split array in case malloc fails.
+** Frees the first "words" strings and then the array itself.
+*/
+
 static void	free_split(char **split, size_t words)
 {
 	size_t	i;
@@ -72,6 +89,12 @@ static void	free_split(char **split, size_t words)
 	}
 	free(split);
 }
+
+/* Splits s into an array of strings using c as delimiter.
+** Returns the array terminated with NULL. Returns NULL if s is NULL or malloc 
+fails.
+** Used in validate_numbers and checker main to support input as a single string.
+*/
 
 char	**ft_split(char const *s, char c)
 {

@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pabfajar <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/10 11:54:42 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/10 22:57:20 by pabfajar         ###   ########.fr       */
+/*   Created: 2026/06/10 13:30:45 by jurdiale          #+#    #+#             */
+/*   Updated: 2026/08/12 16:50:21 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* 	swap intercambia los 2 primeros elementos de una pila. 
-    Todas las operaciones reciben t_count *count para contar en modo --bench 
-    y un parametro int print para saber si deben imprimir su nombre o no 
-    (checker) print = 0 */
-
 #include "../push_swap.h"
+
+/* Swaps the first two elements of stack a.
+** Swaps both value and index to keep consistency.
+** If print=1 it writes "sa" to stdout. Counts the operation in count.
+*/
 
 void	sa(t_stack **a, int print, t_count *count)
 {
@@ -36,6 +36,10 @@ void	sa(t_stack **a, int print, t_count *count)
 	count->total++;
 }
 
+/* Swaps the first two elements of stack b.
+** Identical to sa but operates on b.
+*/
+
 void	sb(t_stack **b, int print, t_count *count)
 {
 	int	temp;
@@ -55,29 +59,47 @@ void	sb(t_stack **b, int print, t_count *count)
 	count->total++;
 }
 
+/* Static helper: swaps value and index of the first two nodes.
+** Used by ss to avoid duplicating the swap code.
+*/
+
+static void	swap_top(t_stack *stack)
+{
+	int	temp;
+	int	temp_index;
+
+	temp = stack->value;
+	stack->value = stack->next->value;
+	stack->next->value = temp;
+	temp_index = stack->index;
+	stack->index = stack->next->index;
+	stack->next->index = temp_index;
+}
+
+/* Swaps the first two elements of a and the first two elements of b 
+simultaneously.
+** Calls swap_top for each stack. Does not call sa+sb to avoid double counting.
+** Only writes "ss" and increments the counter if at least one stack has 2 or 
+more elements.
+*/
+
 void	ss(t_stack **a, t_stack **b, int print, t_count *count)
 {
-	int	temp_a;
-	int	temp_b;
-	int	temp_a_index;
-	int	temp_b_index;
+	int	did_swap;
 
-	if (!(*a) || !(*a)->next)
+	did_swap = 0;
+	if (*a && (*a)->next)
+	{
+		swap_top(*a);
+		did_swap = 1;
+	}
+	if (*b && (*b)->next)
+	{
+		swap_top(*b);
+		did_swap = 1;
+	}
+	if (!did_swap)
 		return ;
-	if (!(*b) || !(*b)->next)
-		return ;
-	temp_a = (*a)->value;
-	(*a)->value = (*a)->next->value;
-	(*a)->next->value = temp_a;
-	temp_a_index = (*a)->index;
-	(*a)->index = (*a)->next->index;
-	(*a)->next->index = temp_a_index;
-	temp_b = (*b)->value;
-	(*b)->value = (*b)->next->value;
-	(*b)->next->value = temp_b;
-	temp_b_index = (*b)->index;
-	(*b)->index = (*b)->next->index;
-	(*b)->next->index = temp_b_index;
 	if (print)
 		write(1, "ss\n", 3);
 	count->ss++;

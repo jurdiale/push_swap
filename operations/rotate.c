@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabfajar <pabfajar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pabfajar <jurdiale@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 12:45:23 by jurdiale          #+#    #+#             */
-/*   Updated: 2026/08/10 23:02:42 by pabfajar         ###   ########.fr       */
+/*   Updated: 2026/08/12 16:47:59 by pabfajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* El primer elemento pasa a ser el ultimo. Todas las operaciones 
-	reciben t_count *count para contar en modo --bench y un parametro int print 
-	para saber si deben imprimir su nombre o no (checker) print = 0 */
-
 #include "../push_swap.h"
+
+/* The first element of a becomes the last one (rotate up).
+** Traverses to the last node and attaches the former top at the end.
+** Does nothing if a has fewer than 2 elements.
+*/
 
 void	ra(t_stack **a, int print, t_count *count)
 {
@@ -36,6 +37,10 @@ void	ra(t_stack **a, int print, t_count *count)
 	count->total++;
 }
 
+/* The first element of b becomes the last one.
+** Identical to ra but operates on b.
+*/
+
 void	rb(t_stack **b, int print, t_count *count)
 {
 	t_stack	*last;
@@ -56,29 +61,48 @@ void	rb(t_stack **b, int print, t_count *count)
 	count->total++;
 }
 
+/* Static helper: performs the upward rotation on any stack.
+** Used by rr to avoid duplicating rotation code.
+*/
+
+static void	rotate_stack(t_stack **stack)
+{
+	t_stack	*first;
+	t_stack	*last;
+
+	first = *stack;
+	*stack = (*stack)->next;
+	last = *stack;
+	while (last->next)
+		last = last->next;
+	last->next = first;
+	first->next = NULL;
+}
+
+/* Rotates a and b upward simultaneously.
+** Calls rotate_stack for each stack. Does not call ra+rb to avoid double 
+counting.
+** Only writes "rr" and increments the counter if at least one stack has 2 
+or more elements.
+*/
+
 void	rr(t_stack **a, t_stack **b, int print, t_count *count)
 {
-	t_stack	*last_a;
-	t_stack	*last_b;
-	t_stack	*temp_a;
-	t_stack	*temp_b;
+	int	did_rotate;
 
-	if (!(*a) || !(*a)->next || !(*b) || !(*b)->next)
+	did_rotate = 0;
+	if (*a && (*a)->next)
+	{
+		rotate_stack(a);
+		did_rotate = 1;
+	}
+	if (*b && (*b)->next)
+	{
+		rotate_stack(b);
+		did_rotate = 1;
+	}
+	if (!did_rotate)
 		return ;
-	temp_a = *a;
-	(*a) = (*a)->next;
-	last_a = *a;
-	while (last_a->next)
-		last_a = last_a->next;
-	last_a->next = temp_a;
-	temp_a->next = NULL;
-	temp_b = *b;
-	(*b) = (*b)->next;
-	last_b = *b;
-	while (last_b->next)
-		last_b = last_b->next;
-	last_b->next = temp_b;
-	temp_b->next = NULL;
 	if (print)
 		write(1, "rr\n", 3);
 	count->rr++;
